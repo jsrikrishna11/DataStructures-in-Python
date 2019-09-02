@@ -1,18 +1,23 @@
 ticks = '-'
-level = 0
-def  draw_line(tick_length, label=''):
-    print(ticks*tick_length + label)
 
-def draw_centre(centre_length):
-    if centre_length >0:
-        draw_centre(centre_length - 1)
-        draw_line(centre_length)
-        draw_centre(centre_length - 1)
+def draw_line(count, number=''):
+    print(ticks*count + number)
+    return
 
-def draw_ruler(inches, tick_length):
-    draw_line(tick_length,'0')
-    for j in range(1, inches+1):
-        draw_centre(tick_length - 1)
-        draw_line(tick_length, str(j))
+def drawing(count):
+    if count == 1:
+        draw_line(1)
+        return
+    drawing(count -1)
+    draw_line(count)
+    drawing(count-1)
 
-draw_ruler(2, 5)
+def scale(count, inches):
+    draw_line(count,'0')
+    j=1
+    while j<= inches:
+        drawing(count)
+        draw_line(count,str(j))
+        j+=1
+
+scale(4,5)
