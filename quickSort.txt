@@ -1,0 +1,27 @@
+to do:
+pick a pivot
+values lesser than pivot to the left and values greater than pivot to the right (partitioning)
+then recursively sort the left and the sort the right
+
+how to do this partitioning?
+we do this using two pointers - lower and upper
+we divide the array into pivot, lower and upper initially pointing to the same index, and remaining array
+
+we also need to create a "insert(array, index)" function too
+
+psuedo code:
+
+quick sort (Array, lower, upper):
+    pivot = lower
+    lower += pivot +1
+    upper += pivot +2
+    while lower < limitand upper<=limit:
+        if array[lower]<Array[pivot]:
+            swap(Array, pivot)
+            lower+=1
+        if array{upper}<Array[pivot]:
+            upper+=1
+    swap (Array, pivot, lower )
+    quick sort (array[:lower])
+    quick sort (array[lower+2:upper] )
+        
